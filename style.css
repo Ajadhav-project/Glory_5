@@ -1,0 +1,714 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 🔥 HEADER - Electric Blue Gradient */
+.header {
+    background: linear-gradient(135deg, #00d4ff, #0099cc, #0077b6);
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #fff, #e0f7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b9d, #c44569);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.nav a:hover {
+    color: #ff6b9d;
+    transform: translateY(-2px);
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+}
+
+.cart-icon:hover {
+    transform: scale(1.2) rotate(10deg);
+    background: rgba(255,107,157,0.3);
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: linear-gradient(45deg, #ff6b9d, #c44569);
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(255,107,157,0.5);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* 🌌 HERO - Cosmic Purple + Blue */
+.hero {
+    background: linear-gradient(135deg, 
+        rgba(26, 26, 46, 0.95) 0%, 
+        rgba(22, 33, 62, 0.95) 50%,
+        rgba(0, 212, 255, 0.1) 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120,219,255,0.3) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px rgba(0,212,255,0.5);
+    background: linear-gradient(45deg, #fff, #e0f7ff, #ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 20px #00d4ff); }
+    to { filter: drop-shadow(0 0 30px #ff6b9d); }
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* 🚀 CTA BUTTON - Neon Blue */
+.cta-btn {
+    background: linear-gradient(45deg, #00d4ff, #0099cc);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,212,255,0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.cta-btn:hover::before {
+    left: 100%;
+}
+
+.cta-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,212,255,0.6);
+}
+
+/* 🛍️ PRODUCTS SECTION */
+.products-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 4rem;
+    background: linear-gradient(45deg, #00d4ff, #ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #00d4ff, #ff6b9d);
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(0,212,255,0.5);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.product-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00d4ff, #ff6b9d, #0099cc);
+}
+
+.product-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0,212,255,0.3);
+    border-color: rgba(0,212,255,0.5);
+}
+
+.product-image {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.15) rotate(2deg);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,212,255,0.95), rgba(255,107,157,0.9));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.btn-quick-view {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.8);
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
+    font-weight: 600;
+}
+
+.btn-quick-view:hover {
+    background: white;
+    color: #0099cc;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.product-info {
+    padding: 2rem;
+}
+
+.product-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #e0f7ff;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #00d4ff, #ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+}
+
+.product-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* ✨ COOL BUTTONS - Blue/Purple Gradient */
+.cool-btn {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-add-cart {
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+    color: white;
+    box-shadow: 0 5px 20px rgba(0,212,255,0.3);
+}
+
+.btn-buy-now {
+    background: linear-gradient(135deg, #ff6b9d, #c44569);
+    color: white;
+    box-shadow: 0 5px 20px rgba(255,107,157,0.4);
+}
+
+.cool-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.cool-btn:hover::before {
+    left: 100%;
+}
+
+.cool-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,212,255,0.5);
+}
+
+/* 🪟 MODALS */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15,15,35,0.95);
+    backdrop-filter: blur(15px);
+}
+
+.modal-content {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255,255,255,0.2);
+    margin: 5% auto;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 650px;
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: modalSlide 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@keyframes modalSlide {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.close-btn {
+    color: white;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.close-btn:hover {
+    color: #ff6b9d;
+    transform: rotate(90deg);
+}
+.modal-body {
+    padding: 2rem;
+    color: #e0f7ff;
+}
+.modal-body h2 {
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #00d4ff, #ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.modal-body p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+.modal-body .price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #00d4ff, #ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.modal-body .btn-add-cart {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+/* 📱RESPONSIVE */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .nav {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* 🔥 COOL FOOTER - Perfect Theme Match */
+.footer {
+    background: linear-gradient(135deg, #0a0a1a 0%, #0f0f23 50%, #1a1a2e 100%);
+    color: #e0f7ff;
+    padding: 80px 0 40px;
+    margin-top: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, #ff6b9d, #0099cc, transparent);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-brand h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #00d4ff, #ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-brand p {
+    opacity: 0.8;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #a0a0ff;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e0f7ff;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(15px);
+}
+
+.social-btn:hover {
+    background: linear-gradient(135deg, #00d4ff, #ff6b9d);
+    transform: translateY(-5px) scale(1.1) rotate(360deg);
+    box-shadow: 0 15px 35px rgba(0,212,255,0.4);
+    border-color: rgba(255,255,255,0.5);
+}
+
+.footer-links h4 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #00d4ff;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-links h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b9d, #00d4ff);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    color: #a0a0ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-links ul li a:hover {
+    color: #00d4ff;
+    transform: translateX(10px);
+}
+
+.footer-newsletter h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #ff6b9d;
+}
+
+.footer-newsletter p {
+    opacity: 0.8;
+    margin-bottom: 25px;
+    color: #a0a0ff;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+}
+
+.newsletter-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #e0f7ff;
+    font-size: 1rem;
+    outline: none;
+    padding: 5px 15px;
+}
+
+.newsletter-input::placeholder {
+    color: #a0a0ff;
+}
+
+.newsletter-btn {
+    padding: 12px 25px !important;
+    font-size: 0.9rem !important;
+    min-width: 120px;
+    white-space: nowrap;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    opacity: 0.7;
+    font-size: 0.95rem;
+}
+
+.footer-payments {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-payments i {
+    font-size: 1.5rem;
+    color: #00d4ff;
+    transition: all 0.3s ease;
+}
+
+.footer-payments i:hover {
+    color: #ff6b9d;
+    transform: scale(1.2);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-btn {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 60px 0 30px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-payments {
+        justify-content: center;
+    }
+}
