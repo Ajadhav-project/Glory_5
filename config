@@ -1,0 +1,25 @@
+<?php
+// Database configuration (Optional - using array for demo)
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'glory5_shop');
+
+// For demo purposes, we'll use array data
+// In production, connect to MySQL database
+
+// Site configuration
+define('SITE_NAME', 'Glory_5');
+define('SITE_URL', 'http://localhost/glory_5');
+define('CURRENCY', '$');
+
+// Start session if not already started
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Initialize cart if not exists
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+?>
